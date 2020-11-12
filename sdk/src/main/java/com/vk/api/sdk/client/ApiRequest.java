@@ -83,6 +83,7 @@ public abstract class ApiRequest<T> {
                 error = gson.fromJson(errorElement, Error.class);
             } catch (JsonSyntaxException e) {
                 LOG.error("Invalid JSON: " + textResponse, e);
+                // Can't parse json response
                 throw new ClientException("Can't parse json response");
             }
 
